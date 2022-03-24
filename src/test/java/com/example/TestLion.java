@@ -48,21 +48,6 @@ public class TestLion {
         Lion lion = new Lion(feline,"Самец");
         assertEquals(1,lion.getKittens());
     }
-    @Test
-    public void testDoesHaveManeFemale() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline,"Самка");
-        assertEquals(false,lion.doesHaveMane());
-
-    }
-
-    @Test
-    public void testDoesHaveManeMale() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline,"Самец");
-        assertEquals(true,lion.doesHaveMane());
-
-    }
 
     @Test
     public void testGetFood() throws Exception {

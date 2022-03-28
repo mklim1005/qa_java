@@ -59,9 +59,9 @@ public class TestLion {
 
     @Test
     public void testGetFood() throws Exception {
-        Feline feline = new Feline();
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("баба яга", "змей горыныч"));
         Lion lion = new Lion(feline,"Самец");
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> expected = List.of("баба яга", "змей горыныч");
         assertEquals(expected,lion.getFood());
     }
 }

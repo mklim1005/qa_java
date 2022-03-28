@@ -1,12 +1,20 @@
 package com.example;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TestLion {
+    @Mock
+    Feline feline;
+
     @Test
     public void testLionMale() throws Exception {
         Feline feline = new Feline();
@@ -37,16 +45,16 @@ public class TestLion {
 
     @Test
     public void testGetKittensFemale() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline,"Самка");
-        assertEquals(1,lion.getKittens());
+        Mockito.when(this.feline.getKittens()).thenReturn(77);
+        Lion lion = new Lion(this.feline,"Самка");
+        assertEquals(77,lion.getKittens());
     }
 
     @Test
     public void testGetKittensMale() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline,"Самец");
-        assertEquals(1,lion.getKittens());
+        Mockito.when(this.feline.getKittens()).thenReturn(3);
+        Lion lion = new Lion(this.feline,"Самец");
+        assertEquals(3,lion.getKittens());
     }
 
     @Test
